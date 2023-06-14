@@ -60,7 +60,7 @@ The AzureFileInfo class includes the following properties:
 ## Methods
 The AzureFileInfo class includes the following method:
 
-**-. Validate: This method validates the AzureFileInfo object by ensuring that the required properties (ConnectionString, BlobContainerName, and BlobName) are not null or empty. It takes a prefix parameter (_prefix) that can be used to provide additional context or details in the error message if any of the properties are missing.**
+**- Validate: This method validates the AzureFileInfo object by ensuring that the required properties (ConnectionString, BlobContainerName, and BlobName) are not null or empty. It takes a prefix parameter (_prefix) that can be used to provide additional context or details in the error message if any of the properties are missing.**
 
 ## Usage
 To use the AzureFileInfo class, follow these steps:
@@ -70,3 +70,32 @@ To use the AzureFileInfo class, follow these steps:
 **2. Set the ConnectionString, BlobContainerName, and BlobName properties with the relevant values.**
 
 **3. Call the Validate method to ensure that the required properties are provided.**
+
+# Encryption/Decryption Controller Class
+
+This repository includes a C# class named "EncryptionDecryptionController" that serves as the controller for handling encryption and decryption operations on PGP files. The class utilizes the PgpCore library and Azure.Storage.Blobs.Specialized namespace for file processing and Azure Blob Storage integration.
+
+## Properties
+The EncryptionDecryptionController class includes the following property:
+
+**- Request: Represents an instance of the EncryptionDecryptionRequest class, which contains the parameters required for encryption or decryption.**
+
+## Methods
+The EncryptionDecryptionController class includes the following methods:
+
+**1. EncryptAsync(): This method performs the encryption process. It downloads the input file from Azure Blob Storage, encrypts the stream using the specified encryption key file, and uploads the resulting encrypted content to Azure Blob Storage as the output file.**
+
+**2. DecryptAsync(): This method performs the decryption process. It downloads the input file from Azure Blob Storage, decrypts the stream using the specified encryption key file and passphrase, and uploads the decrypted content to Azure Blob Storage as the output file.**
+
+**3. DownloadFileFromBlobAsync(AzureFileInfo, MemoryStream): This method downloads a file from Azure Blob Storage. It takes an AzureFileInfo object that contains the connection string, blob container name, and blob name, as well as a MemoryStream to store the downloaded file content.**
+
+**4. UploadStreamToBlobAsync(AzureFileInfo, MemoryStream): This method uploads a stream to Azure Blob Storage. It takes an AzureFileInfo object representing the destination blob, as well as a MemoryStream containing the content to be uploaded.**
+
+## Usage
+To use the EncryptionDecryptionController class, follow these steps:
+
+**1. Instantiate an EncryptionDecryptionController object and provide an instance of the EncryptionDecryptionRequest class containing the necessary parameters.**
+
+**2. Call the EncryptAsync() method to perform the encryption process or the DecryptAsync() method to perform the decryption process.**
+
+**3. The class will handle downloading the input file, performing the encryption or decryption, and uploading the result to Azure Blob Storage.**
