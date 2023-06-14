@@ -99,3 +99,34 @@ To use the EncryptionDecryptionController class, follow these steps:
 **2. Call the EncryptAsync() method to perform the encryption process or the DecryptAsync() method to perform the decryption process.**
 
 **3. The class will handle downloading the input file, performing the encryption or decryption, and uploading the result to Azure Blob Storage.**
+
+# Encryption/Decryption Request Class
+
+This repository includes a C# class named "EncryptionDecryptionRequest" that represents the request parameters for encryption or decryption operations on PGP files. The class includes properties for input file information, output file information, encryption/decryption key file information, passphrase, and an option for enabling armor mode.
+
+## Properties
+The EncryptionDecryptionRequest class includes the following properties:
+
+**1. InputFile: Represents an instance of the AzureFileInfo class containing information about the input file stored in Azure Blob Storage.**
+
+**2. OutputFile: Represents an instance of the AzureFileInfo class containing information about the output file where the result will be stored in Azure Blob Storage.**
+
+**3. EncryptionDecryptionKeyFile: Represents an instance of the AzureFileInfo class containing information about the encryption/decryption key file stored in Azure Blob Storage.**
+
+**4. passPhrase: Specifies the passphrase to be used during decryption.**
+
+**5. Armor: Indicates whether the encrypted content should be ASCII-armored. It is set to true by default.**
+
+## Methods
+The EncryptionDecryptionRequest class includes the following method:
+
+**- validate(): This method validates the EncryptionDecryptionRequest object by ensuring that the required properties (InputFile, OutputFile, and EncryptionDecryptionKeyFile) are provided and valid. It calls the Validate method of the AzureFileInfo class for each property to perform the validation.**-
+
+## Usage
+To use the EncryptionDecryptionRequest class, follow these steps:
+
+**1. Instantiate an EncryptionDecryptionRequest object.**
+
+**2. Set the InputFile, OutputFile, EncryptionDecryptionKeyFile, passPhrase, and Armor properties with the relevant values.**
+
+**3. Call the validate() method to ensure that the required properties are provided and valid.**
