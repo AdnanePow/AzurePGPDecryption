@@ -44,3 +44,29 @@ The Decryption class includes the following methods and components:
 **2. Logging:** The ILogger instance is used to log information and errors during the execution of the function.
 
 **3. Exception Handling:** Any exceptions that occur during the decryption process are caught and logged, and a BadRequestObjectResult is returned with the corresponding error message.
+
+#  Azure File Information Class
+This repository includes a C# class named "AzureFileInfo" that represents the file information required for accessing and processing files stored in Azure Blob Storage. The class provides properties for the Azure Blob Storage connection string, blob container name, and blob name.
+
+## Properties
+The AzureFileInfo class includes the following properties:
+
+**1. ConnectionString: Represents the connection string for accessing the Azure Blob Storage account.**
+
+**2. BlobContainerName: Specifies the name of the blob container where the file is stored.**
+
+**3. BlobName: Represents the name of the specific blob/file within the container.**
+
+## Methods
+The AzureFileInfo class includes the following method:
+
+**-. Validate: This method validates the AzureFileInfo object by ensuring that the required properties (ConnectionString, BlobContainerName, and BlobName) are not null or empty. It takes a prefix parameter (_prefix) that can be used to provide additional context or details in the error message if any of the properties are missing.**
+
+## Usage
+To use the AzureFileInfo class, follow these steps:
+
+**1. Instantiate an AzureFileInfo object.**
+
+**2. Set the ConnectionString, BlobContainerName, and BlobName properties with the relevant values.**
+
+**3. Call the Validate method to ensure that the required properties are provided.**
